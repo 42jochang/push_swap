@@ -6,7 +6,7 @@
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:55:42 by jochang           #+#    #+#             */
-/*   Updated: 2018/09/05 23:11:05 by jochang          ###   ########.fr       */
+/*   Updated: 2018/09/07 16:08:58 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int				mini_sort(t_batch *batch)
 	if (((*batch).a)->num != ft_lstmin((*batch).a))
 	{
 		if (((*batch).a)->next->num == ft_lstmin((*batch).a))
-			ap += action("rra", &(*batch).a, &(*batch).b, (*batch).flags);
-		else
 			ap += action("ra", &(*batch).a, &(*batch).b, (*batch).flags);
+		else
+			ap += action("rra", &(*batch).a, &(*batch).b, (*batch).flags);
 	}
 	return (ap);
 }
