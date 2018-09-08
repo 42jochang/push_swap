@@ -6,7 +6,7 @@
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 18:44:17 by jochang           #+#    #+#             */
-/*   Updated: 2018/09/08 12:59:08 by jochang          ###   ########.fr       */
+/*   Updated: 2018/09/08 13:01:52 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ static void	commands(t_stack **a, t_stack **b)
 		free(cmd);
 }
 
-static int	check(t_stack *a)
+static int	check(t_stack *a, t_stack *b)
 {
+	ZERO_CHECK(b);
 	while (a && a->next)
 	{
 		ZERO_CHECK(a->num > a->next->num);
@@ -45,7 +46,7 @@ int			main(int ac, char **av)
 	a = parse_args(ac, av);
 	b = NULL;
 	commands(&a, &b);
-	ft_putendl(check(a) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
+	ft_putendl(check(a, b) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
 	ft_lstfree(&a);
 	ft_lstfree(&b);
 	return (0);
