@@ -6,7 +6,7 @@
 /*   By: jochang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 18:44:17 by jochang           #+#    #+#             */
-/*   Updated: 2018/09/05 23:07:27 by jochang          ###   ########.fr       */
+/*   Updated: 2018/09/08 12:59:08 by jochang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ static void	commands(t_stack **a, t_stack **b)
 {
 	char	*cmd;
 
-	cmd = malloc(1);
 	while (get_next_line(0, &cmd) > 0)
 	{
-		BREAK_CHECK(ft_strequ(cmd, ""));
 		fdis(cmd, a, b, 'c');
 		free(cmd);
 	}
+	if (cmd && *cmd)
+		free(cmd);
 }
 
 static int	check(t_stack *a)
